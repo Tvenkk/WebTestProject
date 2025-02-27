@@ -24,6 +24,9 @@ public class LoginPage extends BasePage {
     // Локатор для элемента с сообщением об ошибке входа
     private SelenideElement errorMessage = $(".input-e.login_error");
 
+    // Локатор для восстановления пароля
+    private SelenideElement goToRecoveryButton = $("[value='st.go_to_recovery']");
+
     {
         verifyPageElements();
     }
@@ -98,5 +101,15 @@ public class LoginPage extends BasePage {
     @Step("Входим на сайт через Yandex")
     public void loginWithYandex() {
         yandexButton.shouldBe(visible).click();
+    }
+
+    @Step("Нажимаем кнопку Восстановить пароль")
+    public void goToRecovery() {
+        goToRecoveryButton.shouldBe(visible).click();
+    }
+
+    @Step("Нажимаем кнопку Войти")
+    public void clickLogin() {
+        loginButton.shouldBe(visible).click();
     }
 }
