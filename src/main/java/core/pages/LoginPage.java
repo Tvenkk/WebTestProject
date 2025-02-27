@@ -67,14 +67,12 @@ public class LoginPage extends BasePage {
     public void loginWithOnlyUsername(String username) {
         usernameField.shouldBe(visible).click();
         usernameField.shouldBe(visible).setValue(username);
-        loginButton.shouldBe(visible).click();
     }
 
     @Step("Входим на сайт только с паролем: {password}")
     public void loginWithOnlyPassword(String password) {
         passwordField.shouldBe(visible).click();
         passwordField.shouldBe(visible).setValue(password);
-        loginButton.shouldBe(visible).click();
     }
 
     @Step("Переходим на страницу восстановления пароля")
