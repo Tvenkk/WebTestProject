@@ -15,7 +15,6 @@ public class LoginWithPasswordTest extends BaseTest {
     @BeforeEach
     public void prepare() {
         open(baseUrl);
-
         loginPage = new LoginPage();
     }
 
@@ -23,6 +22,7 @@ public class LoginWithPasswordTest extends BaseTest {
     public void testLoginWithPassword() {
         // Ввод пароля
         loginPage.loginWithOnlyPassword("Roma2001");
+        loginPage.clickLogin();
 
         assertTrue(loginPage.isErrorMessageVisible(), "Сообщение об ошибке входа не отображается");
 

@@ -15,7 +15,6 @@ public class LoginWithUsernameTest extends BaseTest {
     @BeforeEach
     public void prepare() {
         open(baseUrl);
-
         loginPage = new LoginPage();
     }
 
@@ -23,6 +22,7 @@ public class LoginWithUsernameTest extends BaseTest {
     public void testLoginWithUsername() {
         // Ввод логина
         loginPage.loginWithOnlyUsername("Roman");
+        loginPage.clickLogin();
 
         assertTrue(loginPage.isErrorMessageVisible(), "Сообщение об ошибке входа не отображается");
 
