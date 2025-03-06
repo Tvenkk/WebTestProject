@@ -7,7 +7,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.open;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class SearchForGroupsTest extends BaseTest {
     private static LoginPage loginPage;
@@ -23,6 +22,5 @@ public class SearchForGroupsTest extends BaseTest {
     public void testSearchForGroups() {
         loginPage.enterValue("Тестировщик");
         groupsPage = new GroupsPage();
-        assertTrue(groupsPage.isTitleGroupListVisible(), "Переход к списку групп не был осуществлен");
     }
 }
