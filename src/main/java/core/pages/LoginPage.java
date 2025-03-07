@@ -27,6 +27,12 @@ public class LoginPage extends BasePage {
     // Локатор для восстановления пароля
     private SelenideElement goToRecoveryButton = $("[value='st.go_to_recovery']");
 
+    // Локатор для переключения на вход по QR-коду
+    private SelenideElement qrCode = $("[data-l='t,qr_tab']");
+
+    // Локатор для отображения QR-кода
+    private SelenideElement qrCodeImg = $(".qr_code_image");
+
     {
         verifyPageElements();
     }
@@ -41,6 +47,7 @@ public class LoginPage extends BasePage {
         vkButton.shouldBe(visible);
         mailButton.shouldBe(visible);
         yandexButton.shouldBe(visible);
+        qrCode.shouldBe(visible);
     }
 
     @Step("Проверяем видимость сообщения об ошибке входа")
@@ -109,5 +116,15 @@ public class LoginPage extends BasePage {
     @Step("Нажимаем кнопку Войти")
     public void clickLogin() {
         loginButton.shouldBe(visible).click();
+    }
+
+    @Step("Переключаемся на вкладку QR-код")
+    public void switchToQrCode() {
+        qrCode.shouldBe(visible).click();
+    }
+
+    @Step("Проверяем видимость QR-кода")
+    public boolean isQrCodeVisible() {
+        return qrCodeImg.shouldBe(visible).exists();
     }
 }

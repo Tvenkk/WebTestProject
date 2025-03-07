@@ -5,6 +5,7 @@ import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 
 public abstract class BasePage {
 
@@ -18,6 +19,14 @@ public abstract class BasePage {
     @Step("Кликаем на логотип ОК")
     public void clickLogo() {
         headerLogo.shouldBe(visible).click();
+    }
+
+    @Step("Вводим в поле значение: {query}")
+    public void enterValue(String query) {
+        searchField.shouldBe(visible).click();
+        searchField.shouldBe(visible).setValue(query);
+        SelenideElement valueList = $x(String.format("//a[text()='%s']", query));
+        valueList.click();
     }
 
     @Step("Выполняем поиск по сайту с запросом: {query}")
