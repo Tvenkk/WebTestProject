@@ -1,8 +1,8 @@
-package tests;
+package tests.web;
 
 import core.base.BaseTest;
-import core.pages.AnonymRecoveryPage;
-import core.pages.LoginPage;
+import core.pages.web.AnonymRecoveryPage;
+import core.pages.web.LoginPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -24,7 +24,7 @@ public class SwitchingToTheHelpdeskTest extends BaseTest {
         // Нажимаем на кнопку "Не получается войти?"
         loginPage.openForgotPasswordPage();
         anonymRecoveryPage = new AnonymRecoveryPage();
-        // Нажимаем на кнопку "Обратьтся в службу поддержки"
+        // Нажимаем на кнопку "Обратиться в службу поддержки"
         anonymRecoveryPage.goToSupport();
         // Проверяем отображение окна чата поддержки
         assertTrue(anonymRecoveryPage.isSupportChatVisible(), "Диалоговое окно не отображается");
