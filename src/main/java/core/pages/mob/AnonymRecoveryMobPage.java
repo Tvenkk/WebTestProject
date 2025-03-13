@@ -4,7 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 import core.base.BaseMobPage;
 import io.qameta.allure.Step;
 
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.clickable;
 import static com.codeborne.selenide.Selenide.$;
 
 public class AnonymRecoveryMobPage extends BaseMobPage {
@@ -17,26 +17,26 @@ public class AnonymRecoveryMobPage extends BaseMobPage {
         verifyPageElement();
     }
 
-    @Step("Проверяем видимость всех элементов на странице восстановления пароля")
+    @Step("Проверяем видимость всех элементов на странице")
     private void verifyPageElement() {
-        recoveryByPhoneButton.shouldBe(visible);
-        recoveryByEmailButton.shouldBe(visible);
-        goToSupportButton.shouldBe(visible);
+        recoveryByPhoneButton.shouldBe(clickable);
+        recoveryByEmailButton.shouldBe(clickable);
+        goToSupportButton.shouldBe(clickable);
     }
 
 
     @Step("Нажимаем на кнопку восстановления через телефон")
     public void goToRecoveryByPhone() {
-        recoveryByPhoneButton.shouldBe(visible).click();
+        recoveryByPhoneButton.shouldBe(clickable).click();
     }
 
     @Step("Нажимаем на кнопку восстановления через почту")
     public void goToRecoveryByEmail() {
-        recoveryByEmailButton.shouldBe(visible).click();
+        recoveryByEmailButton.shouldBe(clickable).click();
     }
 
     @Step("Переходим к технической поддержке")
     public void goToSupport() {
-        goToSupportButton.shouldBe(visible).click();
+        goToSupportButton.shouldBe(clickable).click();
     }
 }

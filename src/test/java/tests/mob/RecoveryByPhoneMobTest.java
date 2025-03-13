@@ -4,18 +4,18 @@ import core.base.BaseMobPage;
 import core.base.MobileBaseTest;
 import core.pages.mob.AnonymRecoveryMobPage;
 import core.pages.mob.LoginMobPage;
-import core.pages.mob.RecoveryStartByEmailMobPage;
+import core.pages.mob.RecoveryStartByPhoneMobPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.open;
 
-public class RecoveryByEmailMobTest extends MobileBaseTest {
+public class RecoveryByPhoneMobTest extends MobileBaseTest {
 
     private static BaseMobPage baseMobPage;
     private static LoginMobPage loginMobPage;
     private static AnonymRecoveryMobPage anonymRecoveryMobPage;
-    private static RecoveryStartByEmailMobPage recoveryStartByEmailMobPage;
+    private static RecoveryStartByPhoneMobPage recoveryStartByPhoneMobPage;
 
     @BeforeEach
     public void prepare() {
@@ -26,10 +26,11 @@ public class RecoveryByEmailMobTest extends MobileBaseTest {
     }
 
     @Test
-    public void testRecoveryByEmailMob() {
+    public void testRecoveryByPhoneMob() {
         loginMobPage.openForgotPasswordPage();
         anonymRecoveryMobPage = new AnonymRecoveryMobPage();
-        anonymRecoveryMobPage.goToRecoveryByEmail();
-        recoveryStartByEmailMobPage = new RecoveryStartByEmailMobPage();
+        anonymRecoveryMobPage.goToRecoveryByPhone();
+        recoveryStartByPhoneMobPage = new RecoveryStartByPhoneMobPage();
+        String countryCode = recoveryStartByPhoneMobPage.selectCountryByName("Перу");
     }
 }
