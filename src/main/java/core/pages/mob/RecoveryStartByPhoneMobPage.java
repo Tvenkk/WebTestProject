@@ -6,8 +6,7 @@ import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.*;
 
 public class RecoveryStartByPhoneMobPage extends BaseMobPage {
 
@@ -35,8 +34,8 @@ public class RecoveryStartByPhoneMobPage extends BaseMobPage {
     @Step("Выбираем код страны по названию: {countryName}")
     public String selectCountryByName(String countryName) {
         countryDropdown.click();
-        SelenideElement countryItem = $(String.format(".choose-list_i-cnt.wbr[data-model='{\"name\":\"%s\"}']", countryName));
-        countryItem.scrollTo();
+        SelenideElement countryItem = $(String.format(".choose-list_i-cnt.wbr[data-model*='\"name\":\"%s\"']", countryName));
+        executeJavaScript("arguments[0].scrollBy(0, -30);", countryItem);
         String countryCode = countryItem.find(".reg_choose_prefix").text();
         countryItem.click();
         return countryCode;
